@@ -1,0 +1,49 @@
+{
+    "name": "Wmeeting Extension",
+    "description": "Record whole tab",
+    "version": "1.0",
+    "manifest_version": 3,
+    
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab",
+      "tabCapture",
+      "desktopCapture",
+      "pageCapture",
+      "scripting",
+      "webNavigation",
+      "identity"
+      
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "<all_urls>",
+      "https://*/*",
+      "*://*/*"
+    ],
+    "background": {
+      "service_worker": "js/background.js"
+    },
+    "content_scripts": [{
+          "matches": ["<all_urls>"],
+          "js": ["js/content-script.js"]
+    }],
+   
+    "action": {
+      "default_title":"Record Your Screen",
+      "default_popup": "background.html",
+      "default_icon": "images/sharing_icon.png"
+    },
+    "icons":{  
+      "16":"images/sharing_icon.png",
+      "22":"images/sharing_icon.png",
+      "32":"images/sharing_icon.png",
+      "48":"images/sharing_icon.png",
+      "128":"images/sharing_icon.png"
+   },
+    "options_ui":{  
+      "page":"record.html",
+      "open_in_tab": false
+   }
+  }

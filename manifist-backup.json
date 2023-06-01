@@ -1,0 +1,39 @@
+{
+    "name": "Record Screen",
+    "description": "Record whole tab",
+    "version": "1.0",
+    "manifest_version": 3,
+    
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab",
+      "tabCapture",
+      "desktopCapture",
+      "pageCapture",
+      "scripting",
+      "webNavigation"
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "<all_urls>",
+      "https://*/*",
+      "*://*/*"
+    ],
+    "background": {
+      "service_worker": "js/background.js"
+    },
+    "content_scripts": [{
+          "matches": ["<all_urls>"],
+          "js": ["js/content-script.js"]
+    }],
+   
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "images/sharing_icon.png"
+    },
+    "options_ui":{  
+      "page":"options.html",
+      "open_in_tab": false
+   }
+  }
